@@ -16,8 +16,5 @@ void senddata()
   kirim.toCharArray(ckirim,43);
   HC12.write(ckirim);
   Serial.println(ckirim);
-  rfiddataa ="";
-  trek="";
-  kirim="";
-  delay(80);
+  delay(10);
 }

@@ -11,15 +11,16 @@ SoftwareSerial HC12(11, 10); // HC-12 TX Pin, HC-12 RX Pin
 #define STR  6
 #define STL  4
 #define SS_PIN 53
-#define kamera 22
+#define kamera 25
 //pin 11,12,13 utk RFID
-#define right 32
-#define left  33
+#define right 22
+#define left  23
 //#define lajur A2
 #define IRRX_PIN 5
 #define volt A0
 #define volt1 A3
 #define nyalamotor 44
+#define buzzer 32
 
 //int IRRX_PIN = 5;
 //int STL = A3;
@@ -44,6 +45,7 @@ int injakr =0;
 int injakl =0;
 int tegangan = 0;
 int tegangan1 = 0;
+int detecttrack = 0;
 
 float tegaki = 0.0;
 float tegaki1 = 0.0;
@@ -101,6 +103,7 @@ void setup()
   pinMode(left, OUTPUT);
   pinMode(kamera,OUTPUT);
   pinMode(nyalamotor,OUTPUT);
+  pinMode(buzzer,OUTPUT);
 //  pinMode(lajur, OUTPUT);
 //  pinMode(enp,OUTPUT);
 //  digitalWrite(0, HIGH);
@@ -131,11 +134,11 @@ void loop()
 //    finis = 0;
 //  }
 //  if (panjangrfid == 7) //proses lanjut kalo udah detect kartu
-//    {
-    rfiddata();
-    delay(10);
+//    {    
     id_motor();
-    delay(10);
+    //delay(10);
+    rfiddata();
+    //delay(10);
     ir();
     delay(10);
     stang();
@@ -144,7 +147,14 @@ void loop()
     delay(10);
     senddata();
     delay(10);
-    bacasensor = false;
+    //Serial.println(detecttrack);
+    kirimnama  ="";
+    str_tolehr ="";
+    str_tolehl ="";
+    rfiddataa ="";
+    trek="";
+    kirim="";
+   // bacasensor = false;
     }
 //  }
 //  motorfinish();

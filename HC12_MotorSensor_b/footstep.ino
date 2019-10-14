@@ -2,6 +2,7 @@ void footstep()
 {
   pedalr = analogRead(pdr);
   pedall = analogRead(pdl);
+  Serial.println(pedall);
   if (pedalr > 20)
   {
     injakr = 0;
